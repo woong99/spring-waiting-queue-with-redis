@@ -14,3 +14,7 @@ spring:
         highlight_sql: true
     hibernate:
       ddl-auto: update
+
+jwt:
+  secret: 325b745d4688e4f51bb49343f8cb15d24f3f8cc398c7760e970c3552c129a917
+  expiration: 86400000 # 1 day

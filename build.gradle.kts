@@ -34,6 +34,12 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.20.1")
 
+    // Spring Security
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
+    // Validation
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+
     // JPA
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
@@ -43,6 +49,11 @@ dependencies {
     // Logging
     implementation("io.github.oshai:kotlin-logging-jvm:7.0.13")
     implementation("org.springframework.boot:spring-boot-starter-log4j2")
+
+    // JWT
+    implementation("io.jsonwebtoken:jjwt-api:0.13.0")
+    implementation("io.jsonwebtoken:jjwt-impl:0.13.0")
+    implementation("io.jsonwebtoken:jjwt-jackson:0.13.0")
 
     // Test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
