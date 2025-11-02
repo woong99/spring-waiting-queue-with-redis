@@ -13,5 +13,10 @@ data class WaitingQueueResponse(
             position = rank,
             status = WaitingStatus.WAITING
         )
+
+        fun createActive() = WaitingQueueResponse(
+            position = 0,
+            status = WaitingStatus.ACTIVE
+        )
     }
 }

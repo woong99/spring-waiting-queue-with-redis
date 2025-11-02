@@ -1,6 +1,7 @@
 package potato.woong.springwaitingqueuewithredis.domain.queue.controller
 
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -20,6 +21,16 @@ class WaitingQueueController(
     @PostMapping("/join")
     fun joinQueue(): ResponseEntity<ApiResponse<WaitingQueueResponse>> {
         val response = waitingQueueService.joinQueue()
+
+        return ApiResponse.success(response)
+    }
+
+    /**
+     * 대기열 상태 조회 API
+     */
+    @GetMapping("/status")
+    fun getQueueStatus(): ResponseEntity<ApiResponse<WaitingQueueResponse>> {
+        val response = waitingQueueService.getQueueStatus()
 
         return ApiResponse.success(response)
     }

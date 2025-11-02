@@ -20,4 +20,5 @@ enum class ErrorCode(
     INVALID_ID_OR_PASSWORD(HttpStatus.UNAUTHORIZED, "ATH1", "아이디 또는 비밀번호가 올바르지 않습니다."),
 
     FAIL_TO_JOIN_QUEUE(HttpStatus.INTERNAL_SERVER_ERROR, "WTQ1", "대기열 참여에 실패했습니다."),
+    NOT_IN_QUEUE(HttpStatus.BAD_REQUEST, "WTQ2", "대기열에 존재하지 않는 사용자입니다.");
 }

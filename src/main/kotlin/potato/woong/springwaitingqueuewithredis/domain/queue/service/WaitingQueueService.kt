@@ -28,7 +28,22 @@ class WaitingQueueService(
         return WaitingQueueResponse.createWaiting(rank + 1)
     }
 
+    fun getQueueStatus(): WaitingQueueResponse {
+        val userId = SecurityUtils.getCurrentUserId()
+
+        // 이미 입장이 허가된 사용자인지 확인
+        val isActive = redisTemplate.hasKey("$ACTIVE_KEY:$userId")
+        if (isActive) {
+            return WaitingQueueResponse.createActive()
+        }
+
+        // 대기열 내 순번 확인
+        val rank = redisTemplate.opsForZSet().rank(WAITING_QUEUE_KEY, userId) ?: throw CustomException(ErrorCode.NOT_IN_QUEUE)
+        return WaitingQueueResponse.createWaiting(rank + 1)
+    }
+
     companion object {
         private const val WAITING_QUEUE_KEY = "queue:waiting"
+        private const val ACTIVE_KEY = "active"
     }
 }
