@@ -1,0 +1,27 @@
+Configuration:
+
+  Properties:
+    Property:
+      - name: LOG_LEVEL_PATTERN
+        value: "{%5p}{FATAL=red blink, ERROR=red bold, WARN=yellow bold, INFO=green bold, DEBUG=blue bold, TRACE=blue}"
+
+  Appenders:
+    Console:
+      name: console
+      target: SYSTEM_OUT
+      PatternLayout:
+        disableAnsi: false
+        pattern: "%style{%d{yyyy-MM-dd HH:mm:ss}}{magenta} %highlight${LOG_LEVEL_PATTERN} [%style{%thread}{yellow}] %style{[%c{1.1.1.*}]}{cyan} %style{%notEmpty{[%X{requestId}]}}{bright,blue} %m%n"
+
+  Loggers:
+    Logger:
+      name: org.springframework
+      level: info
+      additivity: false
+      AppenderRef:
+        - ref: console
+
+    Root:
+      level: info
+      AppenderRef:
+        - ref: console
