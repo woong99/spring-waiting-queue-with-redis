@@ -43,6 +43,9 @@ dependencies {
     // JPA
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    // Redis
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
     // MySQL
     runtimeOnly("com.mysql:mysql-connector-j")
 

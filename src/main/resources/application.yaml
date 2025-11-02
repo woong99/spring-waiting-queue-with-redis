@@ -1,11 +1,13 @@
 spring:
   application:
     name: spring-waiting-queue-with-redis
+
   datasource:
     url: jdbc:mysql://localhost:13306/waiting_queue
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     show-sql: true
     properties:
@@ -14,6 +16,12 @@ spring:
         highlight_sql: true
     hibernate:
       ddl-auto: update
+    open-in-view: false
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
 
 jwt:
   secret: 325b745d4688e4f51bb49343f8cb15d24f3f8cc398c7760e970c3552c129a917
