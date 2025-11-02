@@ -27,7 +27,7 @@ class AuthService(
 
         // Authentication Token 생성
         val authentication = UsernamePasswordAuthenticationToken(
-            user.userId,
+            user.id,
             user.password,
         )
 
